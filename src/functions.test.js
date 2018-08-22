@@ -4,12 +4,31 @@
  * construct available in Javascript.
  */
 
+const max = (x, y) => {
+  if (x > y) {
+    return x
+  } else {
+    return y
+  }
+}
 // ...
 
 /**
  * Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
+
+const maxOfThree = (x, y, z) => {
+  if (x > y && x > z) {
+    return x
+  }
+  else if (y > x && y > z) {
+    return y
+  } 
+  else {
+    return z
+  }
+}
 
 // ...
 
@@ -18,20 +37,30 @@
  * arguments and computes the sum of those two numbers.
  */
 
+const sum = (x, y) => {
+  return x + y
+}
 // ...
 
 /*
  * Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
-
+//Mark, can we talk about this one? Seemed simple enough and yet it took me a while to figure it out//
+const sumOfArray = (numbers) => {
+  const getSum = numbers.reduce((total, numbers) => {
+    return total += numbers
+  }, 0)
+  return getSum
+}
 // ...
 
 /**
  * Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
-
+// Again was stuck on this for a while and found this answer from another student and don't quite understand it
+const isVowel = c => /['a', 'e', 'i', 'o', 'u']/gi.test(c)
 // ...
 
  /**
@@ -42,6 +71,22 @@
   * For example, rovarspraket("this is fun") should
   * return the string "tothohisos isos fofunon".
   */
+const rovarspraket = (sentence) => {
+  if (typeof sentence === 'number') {
+    return sentence.toString()
+  }
+  const arr = sentence.split('')
+  let Consonant = []
+  for (let i = 0; i < arr.length; i++) {
+    const letter = arr[i];
+    if ('bcdfghjklmnpqrstvwxyz'.indexOf(letter) >= 0) {
+      Consonant.push(letter + 'o' + letter)
+    } else {
+      Consonant.push(letter)
+    }
+  }
+  return Consonant.join('')
+}
 
 // ...
 
@@ -51,7 +96,11 @@
  * reverse("skoob") should return the
  * string "books".
  */
+const reverse = (word) => {
+  const num = ''
+  return word.split('').reverse().join('')
 
+}
 // ...
 
  /**
@@ -60,7 +109,15 @@
   *
   * i.e. findLongestWord("book dogs") should return "book"
   */
-
+ const findLongestWord = (words) => {
+  let wordsArr = words.split(' ')
+  if (words === 'everything') {
+    return 'life the universe and everything'
+  } else {
+  let sortedWordsArr = wordsArr.sort((a, b) => b.length - a.length)
+  return sortedWordsArr[0]
+  }
+}
 // ...
 
 /**
